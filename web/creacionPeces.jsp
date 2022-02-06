@@ -47,5 +47,8 @@
         %>
         <img src=<%=imagen%> alt="alt"/>
         
+        
+        
+        
     </body>
 </html>

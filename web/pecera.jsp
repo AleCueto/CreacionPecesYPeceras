@@ -14,10 +14,47 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!--<link rel="stylesheet" href="./style.css"> !-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <title>JSP Page</title>
     </head>
     <body>
+
+        <!-- INICIO PECERA -->
+
+        <div id="pecera">  
+            <div id="burbuja">
+                <div class="burbuja1"></div>
+                <div class="burbuja2"></div>
+                <div class="burbuja3"></div>
+                <div class="burbuja4"></div>
+                <div class="burbuja5"></div>
+                <div class="burbuja6"></div>
+                <div class="burbuja7"></div>
+                <div class="burbuja8"></div>
+                <div class="burbuja9"></div>
+                <div class="burbuja10"></div>
+                <div class="burbuja11"></div>
+                <div class="burbuja12"></div>
+                <div class="burbuja13"></div>
+                <div class="burbuja14"></div>
+                <div class="burbuja15"></div>        
+            </div>
+
+            <div class="colores"></div>
+            <div class="azules"></div>
+
+        </div>
+
+        <div id="container">
+
+        </div>
+
+
+        <!-- INICIO PECERA -->
+
+
+
         <%request.setCharacterEncoding("UTF-8");%>
 
         <%
@@ -50,11 +87,11 @@
 
                             while (miPecera.next()) {
                                 out.println("<tr>");
-                                out.println("<td>" + miPecera.getString("nomPez") + "</td>" + "<td>" + miPecera.getString("codTipo") + "</td>" + "<td>" + miPecera.getString("codPecera") + "</td>");
+                                out.println("<td>" + miPecera.getString("nomPez") + "</td>" + "<td>" + miPecera.getString("codTipo") + "</td>" + "<td>" + miPecera.getString("codPecera") + "</td> <td> <img class=\"img-fluid\" src=\"" + miPecera.getString("imgPez") + "\"imagenalt=\"alt=\"/>" );
                                 out.println("</tr>");
                                 peceraNum = miPecera.getString("codPecera");
                             }
-                            
+
                         }
                     }
                 %>
