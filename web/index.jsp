@@ -32,8 +32,21 @@
                     <label for="exampleInputPassword1" class="form-label">Contraseña</label>
                     <input type="password" class="form-control" name="CadenaContrasena">
                 </div>
+
+
+                <div class="mb-3">
+                    <label for="disabledSelect" class="form-label">Elije el tipo de pecera</label>
+                    <div id="tipoPeceraHelp" class="form-text">Solo si es tu primera vez</div>
+                    <select id="disabledSelect" class="form-select" name="TipoPecera">
+                        <option>S</option><!-- comment -->
+                        <option>D</option>
+
+                    </select>
+                </div>
+                
                 <button type="submit" class="btn btn-primary">Entra</button>
                 <button type="submit" class="btn btn-primary">Admin</button>
+
             </form>
             <!-- FIN FORMULARIO -->
 

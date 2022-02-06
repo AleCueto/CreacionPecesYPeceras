@@ -2,6 +2,13 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
 */
+
+.imagesTable{
+    width: 10%;
+}
+
+
+
 /* 
     Created on : 6 feb 2022, 13:53:54
     Author     : Estudios
@@ -9,7 +16,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 /* Fondo del cuerpo principal */
 
-body {
+/*body {
    background-color: #1E4063;   
 }
 
@@ -22,7 +29,7 @@ body {
 }
 
 /* Clase burbuja */
-/* Las burbujas tienen dferentes formas */
+/* Las burbujas tienen dferentes formas 
 .burbuja1 {
   position: absolute;
   width: 30px;
@@ -218,10 +225,10 @@ body {
   box-shadow: inset 5px 5px 8px 8px rgba(30, 64, 99, 0.50);
   animation: burbujeo 8s linear infinite;
   z-index:5;  
-}
+}*/
 
 
-/* Peces */
+/* Peces 
 .atunes {
   background-image:url(http://adopta1metrodemar.alianzamarblava.org/bundles/adopta1m2oceano/images/especies-animales/atun.rojo.grupo.png);
   position:absolute;
@@ -232,7 +239,7 @@ body {
   animation: nado_atunes 15s linear infinite;
 }
 
-/* Animaciones */
+/* Animaciones 
 @keyframes burbujeo {
   0% {transform:translateY(400px);}
   100% {transform:translateY(50px);}
@@ -241,6 +248,6 @@ body {
 @keyframes nado_atunes {
   0% {transform:translateX(50px);}
   100% {transform:translateX(1500px);}
-}
+}*/
 
 
