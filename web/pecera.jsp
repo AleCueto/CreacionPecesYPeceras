@@ -82,13 +82,12 @@
             </thead>
             <tbody>
 
-                <%                    
+                <%                   
                         listadoCopia.next();
                         if (request.getParameter("CadenaNombre").toString().equals(listadoCopia.getString("nomUsuario")) && request.getParameter("CadenaContrasena").toString().equals(listadoCopia.getString("contrasena"))) {
                             while (listado.next()) {
                             String name = request.getParameter("CadenaNombre");
                             ResultSet miPecera = u.executeQuery("SELECT * FROM pez p JOIN usuario u WHERE u.codPecera = p.codPecera AND u.nomUsuario = '" + name + "'");
-
                             while (miPecera.next()) {
                                 out.println("<tr>");
                                 out.println("<td>" + miPecera.getString("nomPez") + "</td>" + "<td>" + miPecera.getString("codTipo") + "</td>" + "<td>" + miPecera.getString("codPecera") + "</td> <td> <img class=\"img-fluid imagesTable\" src=\"" + miPecera.getString("imgPez") + "\"imagenalt=\"alt=\"/>" );

@@ -39,11 +39,10 @@
             String[] imagenesPeces = {"null", "mero.png", "atun.png", "trucha.png"}; //El pez llamará a la imagen que tenga como índice su numero de tipo de pez
             String imagen= "./images/" + imagenesPeces[listado.getInt("codTipo")]; //Pasamos la imagen a cadena de texto
             
-            String insercion = "INSERT INTO pez(nomPez, imgPez, codTipo, codPecera) VALUES('" + request.getParameter("NomPez")
-                                                          + "', '" + imagen +"', " + listado.getInt("codTipo") + ", " + request.getParameter("NumPecera") + ")";
+            String insercion = "INSERT INTO pez(nomPez, imgPez, codTipo, codPecera) VALUES('" + request.getParameter("NomPez") + "', '" + imagen +"', " + listado.getInt("codTipo") + ", " + request.getParameter("NumPecera") + ")"; //Pinta una coma la final
         
-        s.execute(insercion);
-        out.print(insercion);
+            //s.execute(insercion);
+            out.print(insercion);
         %>
         <img src=<%=imagen%> alt="alt"/>
         
