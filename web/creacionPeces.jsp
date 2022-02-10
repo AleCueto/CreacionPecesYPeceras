@@ -41,8 +41,9 @@
             
             String insercion = "INSERT INTO pez(nomPez, imgPez, codTipo, codPecera) VALUES('" + request.getParameter("NomPez") + "', '" + imagen +"', " + listado.getInt("codTipo") + ", " + request.getParameter("NumPecera") + ")"; //Pinta una coma la final
         
-            //s.execute(insercion);
+            s.execute(insercion);
             out.print(insercion);
+            //response.sendRedirect("pecera.jsp");
         %>
         <img src=<%=imagen%> alt="alt"/>
         

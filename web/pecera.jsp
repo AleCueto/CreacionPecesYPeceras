@@ -20,40 +20,6 @@
     </head>
     <body>
 
-        <!-- INICIO PECERA -->
-
-        <div id="pecera">  
-            <div id="burbuja">
-                <div class="burbuja1"></div>
-                <div class="burbuja2"></div>
-                <div class="burbuja3"></div>
-                <div class="burbuja4"></div>
-                <div class="burbuja5"></div>
-                <div class="burbuja6"></div>
-                <div class="burbuja7"></div>
-                <div class="burbuja8"></div>
-                <div class="burbuja9"></div>
-                <div class="burbuja10"></div>
-                <div class="burbuja11"></div>
-                <div class="burbuja12"></div>
-                <div class="burbuja13"></div>
-                <div class="burbuja14"></div>
-                <div class="burbuja15"></div>        
-            </div>
-
-            <div class="colores"></div>
-            <div class="azules"></div>
-
-        </div>
-
-        <div id="container">
-
-        </div>
-
-
-        <!-- INICIO PECERA -->
-
-
 
         <%request.setCharacterEncoding("UTF-8");%>
 
@@ -62,11 +28,8 @@
             Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/pecesypeceras?useSSL=false&allowPublicKeyRetrieval=true", "root", "");
             Statement s = conexion.createStatement();
             Statement u = conexion.createStatement();
-            Statement x = conexion.createStatement();
 
-            
             ResultSet listado = s.executeQuery("SELECT * FROM usuario");
-            ResultSet listadoCopia = s.executeQuery("SELECT * FROM usuario");
 
             String peceraNum = "";
 
@@ -82,29 +45,38 @@
             </thead>
             <tbody>
 
-                <%                   
-                        listadoCopia.next();
-                        if (request.getParameter("CadenaNombre").toString().equals(listadoCopia.getString("nomUsuario")) && request.getParameter("CadenaContrasena").toString().equals(listadoCopia.getString("contrasena"))) {
-                            while (listado.next()) {
+                <%                    boolean correcto = false;
+                    while (listado.next()) {
+                        if (request.getParameter("CadenaNombre").toString().equals(listado.getString("nomUsuario")) && request.getParameter("CadenaContrasena").toString().equals(listado.getString("contrasena"))) {
+                            correcto = true;
                             String name = request.getParameter("CadenaNombre");
                             ResultSet miPecera = u.executeQuery("SELECT * FROM pez p JOIN usuario u WHERE u.codPecera = p.codPecera AND u.nomUsuario = '" + name + "'");
-                            while (miPecera.next()) {
+                            while (miPecera.next()) { /*TENGO QUE TENER UN PEZ PARA QUE ENTRE AQUI*/
                                 out.println("<tr>");
-                                out.println("<td>" + miPecera.getString("nomPez") + "</td>" + "<td>" + miPecera.getString("codTipo") + "</td>" + "<td>" + miPecera.getString("codPecera") + "</td> <td> <img class=\"img-fluid imagesTable\" src=\"" + miPecera.getString("imgPez") + "\"imagenalt=\"alt=\"/>" );
+                                out.println("<td>" + miPecera.getString("nomPez") + "</td>" + "<td>" + miPecera.getString("codTipo") + "</td>" + "<td>" + miPecera.getString("codPecera") + "</td> <td> <img class=\"img-fluid imagesTable\" src=\"" + miPecera.getString("imgPez") + "\"imagenalt=\"alt=\"/>");
                                 out.println("</tr>");
-                                peceraNum = miPecera.getString("codPecera");
-                                }
+                                peceraNum = miPecera.getString("codPecera"); // ESTO LO DEBERÍA HACER SIEMPRE PERO SI NO TIENE NINGÚN PEZ NO LO HACE
                             }
-                        } else{
-                            u.execute("INSERT pecera(tipoAgua) VALUE('" + request.getParameter("TipoPecera") + "')");
-                            ResultSet ultimaPecera = x.executeQuery("SELECT * FROM pecera ORDER by codPecera DESC LIMIT 1");
-                            ultimaPecera.next();
-                            u.execute("INSERT usuario(nomUsuario, contrasena, codPecera) VALUE('" + request.getParameter("CadenaNombre") + "','" + request.getParameter("CadenaContrasena") + "','" + ((ultimaPecera.getString("codPecera"))) +  "')"); //QUE EL NUMERO DE PECERA SEA EL NUMERO DE USER
                         }
-                        
-                        
-                        
+                    }
+
+                
                 %>
+            <%
+
+                if(!correcto){
+                response.sendRedirect("index.jsp");
+
+                }
+                
+                /*else{
+                    s.execute("INSERT pecera(tipoAgua) VALUE('" + request.getParameter("TipoPecera") + "')");
+                    ResultSet ultimaPecera = s.executeQuery("SELECT * FROM pecera ORDER by codPecera DESC LIMIT 1");
+                    ultimaPecera.next();
+                    s.execute("INSERT usuario(nomUsuario, contrasena, codPecera) VALUE('" + request.getParameter("CadenaNombre") + "','" + request.getParameter("CadenaContrasena") + "','" + ((ultimaPecera.getString("codPecera"))) +  "')"); //QUE EL NUMERO DE PECERA SEA EL NUMERO DE USER
+                }*/
+
+            %>
 
             <br><br><br>
             <form action="creacionPeces.jsp">
@@ -126,7 +98,7 @@
 
                 <div class="mb-3">
                     <label for="disabledSelect" class="form-label visually-hidden"></label>
-                    <select id="disabledSelect" class="form-select visually-hidden" name="NumPecera">
+                    <select id="disabledSelect" class="form-select " name="NumPecera">
                         <option><% out.print(peceraNum);%></option>
                     </select>
                 </div>
