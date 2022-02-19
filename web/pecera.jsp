@@ -70,10 +70,8 @@
         <div class="container text-center text-white">
             <div class="row pt-5">
                 <div class="col-lg-8 mx-auto">
-                    <h1 class="display-4">Bootstrap table fixed header</h1>
-                    <p class="lead mb-0">Build a bootstrap table with a fixed header and scrollable body using Bootstrap 4.</p>
-                    <p class="lead">Snippet by <a href="https://bootstrapious.com/snippets" class="text-white">
-                            <u>Bootstrapious</u></a></p>
+                    <h1 class="display-4">¡Bienvenido a tu pecera!</h1>
+                    <p class="lead mb-0">Aquí podrás ver a tus queridos peces.</p>
                 </div>
             </div>
         </div><!-- End -->
