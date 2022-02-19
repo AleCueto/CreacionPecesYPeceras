@@ -53,7 +53,7 @@
                             ResultSet miPecera = u.executeQuery("SELECT * FROM pez p JOIN usuario u WHERE u.codPecera = p.codPecera AND u.nomUsuario = '" + name + "'");
                             while (miPecera.next()) { /*TENGO QUE TENER UN PEZ PARA QUE ENTRE AQUI*/
                                 out.println("<tr>");
-                                out.println("<td>" + miPecera.getString("nomPez") + "</td>" + "<td>" + miPecera.getString("codTipo") + "</td>" + "<td>" + miPecera.getString("codPecera") + "</td> <td> <img class=\"img-fluid imagesTable\" src=\"" + miPecera.getString("imgPez") + "\"imagenalt=\"alt=\"/>");
+                                out.println("<td class=\"img-fluid imagesTable\" >" + miPecera.getString("nomPez") + "</td>" + "<td>" + miPecera.getString("codTipo") + "</td>" + "<td>" + miPecera.getString("codPecera") + "</td> <td> <img class=\"img-fluid imagesTable\" src=\"" + miPecera.getString("imgPez") + "\"imagenalt=\"alt=\"/>");
                                 out.println("</tr>");
                                 peceraNum = miPecera.getString("codPecera"); // ESTO LO DEBERÍA HACER SIEMPRE PERO SI NO TIENE NINGÚN PEZ NO LO HACE
                             }

@@ -1,0 +1,55 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 19 feb 2022, 13:18:33
+    Author     : Estudios
+*/
+
+
+/*--------------------------------------TABLE------------------------------------------*/
+
+.imagesTable{
+    width: 30%;
+}
+
+.rowWithImage{
+    font-size: 150%;
+}
+
+.table-fixed tbody {
+    height: 300px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.table-fixed thead,
+.table-fixed tbody,
+.table-fixed tr,
+.table-fixed td,
+.table-fixed th {
+    display: block;
+}
+
+.table-fixed tbody td,
+.table-fixed tbody th,
+.table-fixed thead > tr > th {
+    float: left;
+    position: relative;
+
+    &::after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+}
+
+
+body {
+    background: #74ebd5;
+    background: -webkit-linear-gradient(to right, #4287f5, #263a57);
+    background: linear-gradient(to right, #4287f5, #263a57);
+    min-height: 100vh;
+
+}
