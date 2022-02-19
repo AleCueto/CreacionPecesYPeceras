@@ -43,7 +43,8 @@
         
             s.execute(insercion);
             out.print(insercion);
-            //response.sendRedirect("pecera.jsp");
+            
+            //response.sendRedirect("index.jsp");
         %>
         <img src=<%=imagen%> alt="alt"/>
         

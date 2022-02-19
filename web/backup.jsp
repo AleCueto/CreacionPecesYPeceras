@@ -29,19 +29,11 @@
             Statement s = conexion.createStatement();
             Statement u = conexion.createStatement();
 
-            String numPecera = (String) session.getAttribute("NumPecera");
-
-
-            ResultSet miPecera = s.executeQuery("SELECT * FROM pecera WHERE codPecera = " + numPecera);
-            ResultSet misPeces = u.executeQuery("SELECT * FROM pez WHERE codPecera = " + numPecera);
+            ResultSet listado = s.executeQuery("SELECT * FROM usuario");
 
             String peceraNum = "";
 
-
         %>
-
-
-
         <table class="table">
             <thead>
                 <tr>
@@ -51,26 +43,42 @@
                     <th scope="col">Imagen Pez</th>
                 </tr>
             </thead>
-
-
-
             <tbody>
 
-                <%                    
-                    while (misPeces.next()) {
-                        out.println("<tr>");
-                        out.println("<td>" + misPeces.getString("nomPez") + "</td>" + "<td>" + misPeces.getString("codTipo") + "</td>" + "<td>" + misPeces.getString("codPecera") + "</td> <td> <img class=\"img-fluid imagesTable\" src=\"" + misPeces.getString("imgPez") + "\"imagenalt=\"alt=\"/>");
-                        out.println("</tr>");
-                        peceraNum = misPeces.getString("codPecera"); // ESTO LO DEBERÍA HACER SIEMPRE PERO SI NO TIENE NINGÚN PEZ NO LO HACE
+                <%                    boolean correcto = false;
+                    while (listado.next()) {
+                        if (request.getParameter("CadenaNombre").toString().equals(listado.getString("nomUsuario")) && request.getParameter("CadenaContrasena").toString().equals(listado.getString("contrasena"))) {
+                            correcto = true;
+                            String name = request.getParameter("CadenaNombre");
+                            ResultSet miPecera = u.executeQuery("SELECT * FROM pez p JOIN usuario u WHERE u.codPecera = p.codPecera AND u.nomUsuario = '" + name + "'");
+                            while (miPecera.next()) { /*TENGO QUE TENER UN PEZ PARA QUE ENTRE AQUI*/
+                                out.println("<tr>");
+                                out.println("<td>" + miPecera.getString("nomPez") + "</td>" + "<td>" + miPecera.getString("codTipo") + "</td>" + "<td>" + miPecera.getString("codPecera") + "</td> <td> <img class=\"img-fluid imagesTable\" src=\"" + miPecera.getString("imgPez") + "\"imagenalt=\"alt=\"/>");
+                                out.println("</tr>");
+                                peceraNum = miPecera.getString("codPecera"); // ESTO LO DEBERÍA HACER SIEMPRE PERO SI NO TIENE NINGÚN PEZ NO LO HACE
+                            }
+                        }
                     }
 
-
+                
                 %>
+            <%
 
-            </tbody>
+                if(!correcto){
+                response.sendRedirect("index.jsp");
 
+                }
+                
+                /*else{
+                    s.execute("INSERT pecera(tipoAgua) VALUE('" + request.getParameter("TipoPecera") + "')");
+                    ResultSet ultimaPecera = s.executeQuery("SELECT * FROM pecera ORDER by codPecera DESC LIMIT 1");
+                    ultimaPecera.next();
+                    s.execute("INSERT usuario(nomUsuario, contrasena, codPecera) VALUE('" + request.getParameter("CadenaNombre") + "','" + request.getParameter("CadenaContrasena") + "','" + ((ultimaPecera.getString("codPecera"))) +  "')"); //QUE EL NUMERO DE PECERA SEA EL NUMERO DE USER
+                }*/
 
+            %>
 
+            <br><br><br>
             <form action="creacionPeces.jsp">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Nombre Pez</label>
@@ -85,6 +93,13 @@
                         <option>Mero</option>
                         <option>Atun</option><!-- comment -->
                         <option>Trucha</option><!-- comment -->
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="disabledSelect" class="form-label visually-hidden"></label>
+                    <select id="disabledSelect" class="form-select " name="NumPecera">
+                        <option><% out.print(peceraNum);%></option>
                     </select>
                 </div>
 
