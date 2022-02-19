@@ -16,6 +16,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link href="css/peceraStyle.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
         <title>JSP Page</title>
     </head>
     <body>
@@ -44,29 +45,6 @@
 
 
 
-        <form action="creacionPeces.jsp">
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nombre Pez</label>
-                <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="NomPez">
-            </div><!-- comment -->
-
-
-            <div class="mb-3">
-                <label for="disabledSelect" class="form-label">Disabled select menu</label>
-                <select id="disabledSelect" class="form-select" name="TipoPez">
-                    <option>Tipo Pez</option>
-                    <option>Mero</option>
-                    <option>Atun</option><!-- comment -->
-                    <option>Trucha</option><!-- comment -->
-                </select>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <br><br><br>
-        </form>
-
-
-
         <div class="container text-center text-white">
             <div class="row pt-5">
                 <div class="col-lg-8 mx-auto">
@@ -88,28 +66,37 @@
                                 <tr>
                                     <th scope="col" class="col-3">Nombre Pez</th>
                                     <th scope="col"class="col-2">Código Tipo</th>
-                                    <th scope="col"class="col-2">Código Pecera</th>
-                                    <th scope="col"class="col-5">Imagen Pez</th>
+                                    <th scope="col"class="col-4">Imagen Pez</th>
+                                    <th scope="col"class="col-1">Editar </th>
+                                    <th scope="col"class="col-1">Borrar</th>
+
                                 </tr>
                             </thead>
                             <tbody>
-                                <%                                        while (misPeces.next()) {
-                                        out.println("<tr>");
-                                        out.println("<td class=\"col-3 rowWithImage\">" + misPeces.getString("nomPez") + "</td>");
-                                        out.println("<td class=\"col-2 rowWithImage\">" + misPeces.getString("codTipo") + "</td>" + "<td class=\"col-2 rowWithImage \">" + misPeces.getString("codPecera") + "</td> <td class=\"col-5\"> <img class=\"img-fluid imagesTable\" src=\"" + misPeces.getString("imgPez") + "\"imagenalt=\"alt=\"/>");
-                                        out.println("</tr>");
-                                        peceraNum = (String) session.getAttribute("NumPecera"); // ESTO LO DEBERÍA HACER SIEMPRE PERO SI NO TIENE NINGÚN PEZ NO LO HACE
+                                <%                                    
+                                    while (misPeces.next()){  %>
+                                    
+                                <tr>
+                                    <td class="col-3 rowWithImage"> <%= misPeces.getString("nomPez")%></td>
+                                    <td class="col-2 rowWithImage"> <%= misPeces.getString("codTipo")%></td> 
+                                    <td class="col-5"> <img class="img-fluid imagesTable" src= "<%= misPeces.getString("imgPez")%>" alt=""></td>
+                                    <td><i class="col-1 bi bi-pencil-square rowWithImage"></i></td> 
+                                    <td><i class="col-1 bi bi-trash3-fill rowWithImage" onclick="confirm('Estás seguro de querer borrar el registro?')"></i></td>
+                                </tr>
+
+
+                                <%
+                                    peceraNum = (String) session.getAttribute("NumPecera"); // ESTO LO DEBERÍA HACER SIEMPRE PERO SI NO TIENE NINGÚN PEZ NO LO HACE
 
                                     }
-
-
                                 %>
                             </tbody>
                         </table>
                     </div><!-- End -->
-
                 </div>
             </div>
+
+            <a class="button" href='formPeces.jsp'>Añade un nuevo pez</a>   
         </div>
 
 
