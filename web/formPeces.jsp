@@ -52,7 +52,6 @@
                     <input type="text" placeholder="Escribe el nombre del pez" required aria-describedby="NameHelp"  name="NomPez" required />
                     <label for="disabledSelect" class="form-label">TIPO PEZ</label>
                     <select id="disabledSelect" class="form-select" name="TipoPez">
-                        <option>Tipo Pez</option>
                         <option>Mero</option>
                         <option>Atun</option><!-- comment -->
                         <option>Trucha</option><!-- comment -->
