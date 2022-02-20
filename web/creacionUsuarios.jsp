@@ -21,49 +21,74 @@
         <%request.setCharacterEncoding("UTF-8");%>
 
         <%
+
             Class.forName("com.mysql.jdbc.Driver");
             Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/pecesypeceras?useSSL=false&allowPublicKeyRetrieval=true", "root", "");
             Statement s = conexion.createStatement();
+            Statement w = conexion.createStatement();
 
-            
-            ResultSet listado = s.executeQuery("SELECT * FROM tipopez WHERE nomTipo = '" + request.getParameter("NueTipoPez") + "'");
-            listado.next();
-            
-            int tipo = listado.getInt("CodTipo");
-                                            
-            String[] imagenesPeces = {"null", "mero.png", "atun.png", "trucha.png"}; //El pez llamará a la imagen que tenga como índice su numero de tipo de pez
-            String imagen= "./images/" + imagenesPeces[listado.getInt("CodTipo")]; //Pasamos la imagen a cadena de texto
-            
-            String insercionPecera = "INSERT INTO pecera(tipoAgua) VALUES('" + request.getParameter("NueTipoAgua") + "')"; 
-        
-            s.execute(insercionPecera); //CREA LA PECERA
-            
+            boolean repetido = false;
 
-            
-            Statement u = conexion.createStatement();
-            ResultSet ultimaPecera = u.executeQuery("SELECT * FROM pecera ORDER BY codPecera DESC LIMIT 1");
-            ultimaPecera.next();
-            
-            String insercionPez = "INSERT INTO pez(nomPez, imgPez, codTipo, codPecera) VALUES('" + request.getParameter("NomNuePez") + 
-                                                                                          "', '" + imagen +"', " + tipo + 
-                                                                                          ", " + ultimaPecera.getInt("codPecera") + ")"; 
-             
-            
-            Statement a = conexion.createStatement();
-            String inserccionUsuario = "INSERT INTO usuario(nomUsuario, contrasena, codPecera) VALUES('"+ request.getParameter("CadenaNueNombre") + "','" +
-                                                                                                          request.getParameter("CadenaNueContrasena") + "','" +
-                                                                                                          ultimaPecera.getInt("codPecera") + "')";
-           
-            u.execute(insercionPez); //CREA EL PEZ
-            a.execute(inserccionUsuario);//CREA EL USUARIO
-            
-            //out.print(insercionPez);
-            response.sendRedirect("index.jsp");
-            
+            ResultSet peces = w.executeQuery("SELECT * FROM pez"); //Miramos si existe un pez con el mismo nombre
+
+            while (peces.next()) {
+                if (request.getParameter("NomNuePez").toString().equals(peces.getString("nomPez"))) {
+                    session.setAttribute("error", "pez");
+                    repetido = true;
+                }
+            }
+
+            ResultSet users = w.executeQuery("SELECT * FROM usuario"); //Miramos si existe un usuario con el mismo nombre
+
+            while (users.next()) {
+                if (request.getParameter("CadenaNueNombre").toString().equals(users.getString("nomUsuario"))) {
+                    session.setAttribute("error", "usuario");
+                    repetido = true;
+                }
+            }
+
+            if (repetido) {
+                response.sendRedirect("formUsuario.jsp");
+            } else {
+
+                ResultSet listado = s.executeQuery("SELECT * FROM tipopez WHERE nomTipo = '" + request.getParameter("NueTipoPez") + "'");
+                listado.next();
+
+                int tipo = listado.getInt("CodTipo");
+
+                String[] imagenesPeces = {"null", "mero.png", "atun.png", "trucha.png"}; //El pez llamará a la imagen que tenga como índice su numero de tipo de pez
+                String imagen = "./images/" + imagenesPeces[listado.getInt("CodTipo")]; //Pasamos la imagen a cadena de texto
+
+                String insercionPecera = "INSERT INTO pecera(tipoAgua) VALUES('" + request.getParameter("NueTipoAgua") + "')";
+
+                s.execute(insercionPecera); //CREA LA PECERA
+
+                Statement u = conexion.createStatement();
+                ResultSet ultimaPecera = u.executeQuery("SELECT * FROM pecera ORDER BY codPecera DESC LIMIT 1");
+                ultimaPecera.next();
+
+                String insercionPez = "INSERT INTO pez(nomPez, imgPez, codTipo, codPecera) VALUES('" + request.getParameter("NomNuePez")
+                        + "', '" + imagen + "', " + tipo
+                        + ", " + ultimaPecera.getInt("codPecera") + ")";
+
+                Statement a = conexion.createStatement();
+                String inserccionUsuario = "INSERT INTO usuario(nomUsuario, contrasena, codPecera) VALUES('" + request.getParameter("CadenaNueNombre") + "','"
+                        + request.getParameter("CadenaNueContrasena") + "','"
+                        + ultimaPecera.getInt("codPecera") + "')";
+
+                u.execute(insercionPez); //CREA EL PEZ
+                a.execute(inserccionUsuario);//CREA EL USUARIO
+
+                //out.print(insercionPez);
+                response.sendRedirect("index.jsp");
+
+            }
+
+
         %>
 
-        
-        
-        
+
+
+
     </body>
 </html>

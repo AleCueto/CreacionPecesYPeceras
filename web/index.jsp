@@ -25,6 +25,7 @@
         <%
         
             if(session.getAttribute("error").equals("Lo siento, usuario o contraseña incorrectos")){
+                session.setAttribute("error", "null");
                 out.print("<script type=\"text/javascript\">alert(\"Lo siento, acceso denegado, usuario o contraseña incorrectos\");</script>");
             }
         
