@@ -34,4 +34,5 @@ Por último, en el apartado de login, abajo a la derecha tenemos un icono en col
 
 ## Video
 
-https://youtu.be/4yWZi9vN1Ck
+
+[![Alt text](https://img.youtube.com/vi/configuroweb/0.jpg)](https://youtu.be/4yWZi9vN1Ck)
