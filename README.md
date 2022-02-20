@@ -23,3 +23,12 @@ Si pulsamos el icono de la papelera podemos ver como nos aparece una alerta que 
  Si deseamos editar el nombre del pez, damos clic en el icono del lápiz, que nos llevará a una página parecida a la de login, en la que podremos elegir el nuevo nombre para nuestro querido pez.
  
  ![imagen](https://user-images.githubusercontent.com/91873580/154851184-a8c82e20-56e0-4f75-905b-eb75a554e4b7.png)
+
+También tenemos arriba a la derecha de la tabla de la pecera, una etiqueta que nos permite añadir un nuevo pez, si le damos nos enviará a una página en la que podremos seleccionar el nombre de nuestro nuevo pez y el tipo de pez del que se trata.
+
+![imagen](https://user-images.githubusercontent.com/91873580/154851316-b0a3e4f1-0319-4ee6-b315-c500266dbe44.png)
+
+Por último, en el apartado de login, abajo a la derecha tenemos un icono en color amarillo, para contrastar con el resto de la aplicación y permitir que el usuario se de cuenta de él. Este icóno nos permite crear un nuevo usuario, si le damos clic nos llevará a una página en la que deberemos hacer el registro de nuestro nuevo usuario, para ello introducimos un nombre, una contraseña, un nombre para nuestro primero pez, además de su tipo y del tipo de agua que queremos para nuestra pecera (salada o dulce).
+
+![imagen](https://user-images.githubusercontent.com/91873580/154851900-9b4755a1-9d93-4da0-b42a-05dcc27050f0.png)
+
