@@ -33,6 +33,6 @@ Por último, en el apartado de login, abajo a la derecha tenemos un icono en col
 ![imagen](https://user-images.githubusercontent.com/91873580/154851900-9b4755a1-9d93-4da0-b42a-05dcc27050f0.png)
 
 ## Video explicación
-En este video explico el flujo de los archivos del programa y muestro como funciona a grandes rasgos
+En este video explico el flujo de los archivos del programa y muestro como funciona a grandes rasgos:
 
 [![Watch the video](https://user-images.githubusercontent.com/91873580/154855783-9398b583-d211-4900-ade5-e0442e648b34.png)](https://youtu.be/4yWZi9vN1Ck)
