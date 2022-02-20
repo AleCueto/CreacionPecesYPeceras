@@ -35,7 +35,9 @@
                     <button type="submit">LOGIN</button>
                 </div>
             </form><!--fin de formulario de bootstrap-->
+            <a href="formUsuario.jsp">CREAR USUARIO</a>
         </div>
+
 
 
 

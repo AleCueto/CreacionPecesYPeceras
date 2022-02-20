@@ -110,12 +110,11 @@ a {
   bottom: 4px;
   right: 4px;
   text-decoration: none;
-  color: white;
-  background: white;
+  color: black;
+  background: yellow;
   border-radius: 10px;
   padding: 2px;
 }
-
 h1 {
   position: absolute;
   top: 0;
