@@ -80,8 +80,8 @@
                                     <td class="col-3 rowWithImage"> <%= misPeces.getString("nomPez")%></td>
                                     <td class="col-2 rowWithImage"> <%= misPeces.getString("codTipo")%></td> 
                                     <td class="col-5"> <img class="img-fluid imagesTable" src= "<%= misPeces.getString("imgPez")%>" alt=""></td>
-                                    <td><a class="col-1 bi bi-pencil-square rowWithImage"></a></td> 
-                                    <td><a href="delete.jsp?id=<%=misPeces.getString("codPez") %>" class="col-1 bi bi-trash3-fill rowWithImage" onclick="confirm('Estás seguro de querer borrar el registro?')"></a></td>
+                                    <td><a href="formEditarPeces.jsp?id=<%=misPeces.getString("codPez")%>" class="col-1 bi bi-pencil-square rowWithImage"></a></td> 
+                                    <td><a href="delete.jsp?id=<%=misPeces.getString("codPez")%>" class="col-1 bi bi-trash3-fill rowWithImage" onclick="confirm('Estás seguro de querer borrar el registro?')"></a></td>
                                 </tr>
 
 
