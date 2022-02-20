@@ -22,7 +22,15 @@
     <body class="bg-blue">
 
 
-
+        <%
+        
+            if(session.getAttribute("error").equals("Lo siento, usuario o contraseña incorrectos")){
+                out.print("<script type=\"text/javascript\">alert(\"Lo siento, acceso denegado, usuario o contraseña incorrectos\");</script>");
+            }
+        
+        %>
+        
+        
         <div class="container">
             <div class="brand-logo"></div>
             <div class="brand-title">Peces Y Peceras</div>

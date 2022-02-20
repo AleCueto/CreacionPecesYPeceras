@@ -17,7 +17,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link href="css/peceraStyle.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-        <title>JSP Page</title>
+        <title>CRUD-Peces y Peceras</title>
     </head>
     <body>
 
@@ -73,9 +73,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <%                                    
-                                    while (misPeces.next()){  %>
-                                    
+                                <%                                    while (misPeces.next()) {%>
+
                                 <tr>
                                     <td class="col-3 rowWithImage"> <%= misPeces.getString("nomPez")%></td>
                                     <td class="col-2 rowWithImage"> <%= misPeces.getString("codTipo")%></td> 
@@ -86,17 +85,20 @@
 
 
                                 <%
-                                    peceraNum = (String) session.getAttribute("NumPecera"); // ESTO LO DEBERÍA HACER SIEMPRE PERO SI NO TIENE NINGÚN PEZ NO LO HACE
+                                        peceraNum = (String) session.getAttribute("NumPecera"); // ESTO LO DEBERÍA HACER SIEMPRE PERO SI NO TIENE NINGÚN PEZ NO LO HACE
 
                                     }
                                 %>
                             </tbody>
+                            <a class="button" href='formPeces.jsp'>Añade un nuevo pez</a>   
                         </table>
+
+
                     </div><!-- End -->
                 </div>
+
             </div>
 
-            <a class="button" href='formPeces.jsp'>Añade un nuevo pez</a>   
         </div>
 
 
