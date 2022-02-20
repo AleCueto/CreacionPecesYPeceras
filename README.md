@@ -35,4 +35,4 @@ Por último, en el apartado de login, abajo a la derecha tenemos un icono en col
 ## Video
 
 
-[![![imagen](https://user-images.githubusercontent.com/91873580/154855783-9398b583-d211-4900-ade5-e0442e648b34.png)](https://img.youtube.com/vi/configuroweb/0.jpg)](https://youtu.be/4yWZi9vN1Ck)
+[![![imagen]https://user-images.githubusercontent.com/91873580/154855783-9398b583-d211-4900-ade5-e0442e648b34.png)(https://img.youtube.com/vi/configuroweb/0.jpg)](https://youtu.be/4yWZi9vN1Ck)
