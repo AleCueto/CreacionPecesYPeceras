@@ -33,11 +33,17 @@
 
             String buscar = "";
 
+            
             if (request.getParameter("nombreBusqueda") != null) {
                 buscar += " AND nomPez LIKE '%" + request.getParameter("nombreBusqueda").toString() + "%'";
 
             }
 
+            if (request.getParameter("orden") != null){
+                buscar += " ORDER BY " + request.getParameter("orden").toString();
+            }
+            
+            
             String numPecera = (String) session.getAttribute("NumPecera");
 
             ResultSet miPecera = s.executeQuery("SELECT * FROM pecera WHERE codPecera = " + numPecera);
@@ -78,6 +84,11 @@
                 </ul>
                 <form class="form-inline my-2 my-lg-0" action="pecera.jsp">
                     <input  type="text" placeholder="Búsqueda" name="nombreBusqueda" aria-label="Search" >
+                    <select class="form-select" name="orden">
+                        <option value="codTipo">Tipo</option>
+                        <option value="nomPez">Nombre</option>
+                        <option value="pesoPez">Peso</option>
+                    </select>
                     <button class="btn" type="submit">Search</button>
                 </form>
             </div>
