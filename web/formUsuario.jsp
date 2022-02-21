@@ -52,9 +52,9 @@
             }
 
 
-            if(session.getAttribute("NumPecera") == null){
-                response.sendRedirect("index.jsp");
-            }//MIRAR QUE NUMPECERA NO ES NULL; SI ES NULL TE MANDA AL PRINCIPIO
+            //if(session.getAttribute("NumPecera") == null){
+                //response.sendRedirect("index.jsp");
+            //}//MIRAR QUE NUMPECERA NO ES NULL; SI ES NULL TE MANDA AL PRINCIPIO
             
 
         %>

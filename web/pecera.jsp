@@ -141,7 +141,8 @@
                                     }
                                 %>
                             </tbody>
-                            <a class="button" href='formPeces.jsp'>Añade un nuevo pez</a>   
+                            <a class="button" href='formPeces.jsp'>Añade un nuevo pez</a>  
+                            <a class="button" href='index.jsp'>Logout</a>  
                         </table>
 
 
