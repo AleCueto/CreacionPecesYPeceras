@@ -31,18 +31,24 @@
             Statement s = conexion.createStatement();
             Statement u = conexion.createStatement();
 
+            String buscar = "";
+
+            if (request.getParameter("nombreBusqueda") != null) {
+                buscar += " AND nomPez LIKE '%" + request.getParameter("nombreBusqueda").toString() + "%'";
+
+            }
+
             String numPecera = (String) session.getAttribute("NumPecera");
 
             ResultSet miPecera = s.executeQuery("SELECT * FROM pecera WHERE codPecera = " + numPecera);
-            ResultSet misPeces = u.executeQuery("SELECT * FROM pez WHERE codPecera = " + numPecera);
+            ResultSet misPeces = u.executeQuery("SELECT * FROM pez WHERE codPecera = " + numPecera + buscar);
 
             String peceraNum = "";
 
-            if(session.getAttribute("NumPecera") == null){
+            if (session.getAttribute("NumPecera") == null) {
                 response.sendRedirect("index.jsp");
             }//MIRAR QUE NUMPECERA NO ES NULL; SI ES NULL TE MANDA AL PRINCIPIO
-            
-            
+
             if (session.getAttribute("error") != null) {
                 if (session.getAttribute("error").equals("pez")) { //ESTO FALLA!!!
                     session.setAttribute("error", "null");
@@ -71,8 +77,8 @@
 
                 </ul>
                 <form class="form-inline my-2 my-lg-0" action="pecera.jsp">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <input  type="text" placeholder="Búsqueda" name="nombreBusqueda" aria-label="Search" >
+                    <button class="btn" type="submit">Search</button>
                 </form>
             </div>
         </nav>
