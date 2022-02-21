@@ -23,15 +23,17 @@
 
 
         <%
-        
-            if(session.getAttribute("error").equals("Lo siento, usuario o contraseña incorrectos")){
-                session.setAttribute("error", "null");
-                out.print("<script type=\"text/javascript\">alert(\"Lo siento, acceso denegado, usuario o contraseña incorrectos\");</script>");
+            if (session.getAttribute("error") != null) {
+
+                if (session.getAttribute("error").equals("Lo siento, usuario o contraseña incorrectos")) { // ESTO FALLA!!!
+                    session.setAttribute("error", "null");
+                    out.print("<script type=\"text/javascript\">alert(\"Lo siento, acceso denegado, usuario o contraseña incorrectos\");</script>");
+                }
             }
-        
+
         %>
-        
-        
+
+
         <div class="container">
             <div class="brand-logo"></div>
             <div class="brand-title">Peces Y Peceras</div>
