@@ -23,6 +23,9 @@
 
 
         <%
+            session.setAttribute("NumPecera", null);
+            
+            
             if (session.getAttribute("error") != null) {
 
                 if (session.getAttribute("error").equals("Lo siento, usuario o contraseña incorrectos")) { // ESTO FALLA!!!

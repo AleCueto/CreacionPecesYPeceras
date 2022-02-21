@@ -30,6 +30,10 @@
             Statement s = conexion.createStatement();
             Statement u = conexion.createStatement();
 
+            if (session.getAttribute("NumPecera") == null) {
+                response.sendRedirect("index.jsp");
+            }//MIRAR QUE NUMPECERA NO ES NULL; SI ES NULL TE MANDA AL PRINCIPIO
+
             String numPecera = (String) session.getAttribute("NumPecera");
 
             ResultSet miPecera = s.executeQuery("SELECT * FROM pecera WHERE codPecera = " + numPecera);
