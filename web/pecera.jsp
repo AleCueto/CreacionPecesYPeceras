@@ -37,6 +37,13 @@
 
             String peceraNum = "";
 
+            if (session.getAttribute("error") != null) {
+                if (session.getAttribute("error").equals("pez")) { //ESTO FALLA!!!
+                    session.setAttribute("error", "null");
+                    out.print("<script type=\"text/javascript\">alert(\"Lo siento, el nombre del pez ya existe\");</script>");
+                }
+            }
+
 
         %>
 

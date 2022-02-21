@@ -25,28 +25,45 @@
             Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/pecesypeceras?useSSL=false&allowPublicKeyRetrieval=true", "root", "");
             Statement s = conexion.createStatement();
 
-            ResultSet listado = s.executeQuery("SELECT * FROM tipopez WHERE nomTipo = '" + request.getParameter("TipoPez") + "'");
-            listado.next();
-            
-            out.println(request.getParameter("NomPez"));
-            out.println(request.getParameter("TipoPez"));
-                    
-            String[] imagenesPeces = {"null", "mero.png", "atun.png", "trucha.png"}; //El pez llamará a la imagen que tenga como índice su numero de tipo de pez
-            String imagen= "./images/" + imagenesPeces[listado.getInt("codTipo")]; //Pasamos la imagen a cadena de texto
-            
-            String insercion = "INSERT INTO pez(nomPez, imgPez, codTipo, codPecera) VALUES('" + request.getParameter("NomPez") + 
-                                                                                          "', '" + imagen +"', " + listado.getInt("codTipo") + 
-                                                                                          ", " + (String) session.getAttribute("NumPecera") + ")"; 
-        
-            s.execute(insercion);
-            out.print(insercion);
-            response.sendRedirect("pecera.jsp");
-            
+            Statement w = conexion.createStatement();
+
+            boolean repetido = false;
+
+            ResultSet peces = w.executeQuery("SELECT * FROM pez"); //Miramos si existe un pez con el mismo nombre
+
+            while (peces.next()) {
+                if (request.getParameter("NomPez").toString().equals(peces.getString("nomPez"))) {
+                    repetido = true;
+                }
+            }
+
+            if (repetido) {
+                session.setAttribute("error", "pez");
+                response.sendRedirect("pecera.jsp");
+            } else {
+
+                ResultSet listado = s.executeQuery("SELECT * FROM tipopez WHERE nomTipo = '" + request.getParameter("TipoPez") + "'");
+                listado.next();
+
+                out.println(request.getParameter("NomPez"));
+                out.println(request.getParameter("TipoPez"));
+
+                String[] imagenesPeces = {"null", "mero.png", "atun.png", "trucha.png"}; //El pez llamará a la imagen que tenga como índice su numero de tipo de pez
+                String imagen = "./images/" + imagenesPeces[listado.getInt("codTipo")]; //Pasamos la imagen a cadena de texto
+
+                String insercion = "INSERT INTO pez(nomPez, imgPez, codTipo, codPecera) VALUES('" + request.getParameter("NomPez")
+                        + "', '" + imagen + "', " + listado.getInt("codTipo")
+                        + ", " + (String) session.getAttribute("NumPecera") + ")";
+
+                s.execute(insercion);
+                out.print(insercion);
+                response.sendRedirect("pecera.jsp");
+            }
+
         %>
-        <img src=<%=imagen%> alt="alt"/>
-        
-        
-        
-        
+
+
+
+
     </body>
 </html>

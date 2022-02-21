@@ -30,16 +30,36 @@
             Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/pecesypeceras?useSSL=false&allowPublicKeyRetrieval=true", "root", "");
             Statement s = conexion.createStatement();
 
-            String identificador = (String)session.getAttribute("CodPezSesion");
-            
-            String editado = "UPDATE pez SET nomPez = '" + request.getParameter("NomPez")  + "' WHERE codPez = " + identificador; 
-            s.execute(editado);
-            out.print(editado);
-            response.sendRedirect("pecera.jsp");
-            
+            String identificador = (String) session.getAttribute("CodPezSesion");
+
+            Statement w = conexion.createStatement();
+
+            boolean repetido = false;
+
+            ResultSet peces = w.executeQuery("SELECT * FROM pez"); //Miramos si existe un pez con el mismo nombre
+
+            while (peces.next()) {
+                if (request.getParameter("NomPez").toString().equals(peces.getString("nomPez"))) {
+                    repetido = true;
+                }
+            }
+
+            if (repetido) {
+                session.setAttribute("error", "pez");
+                response.sendRedirect("pecera.jsp");
+            } else {
+
+                String editado = "UPDATE pez SET nomPez = '" + request.getParameter("NomPez") + "' WHERE codPez = " + identificador;
+                s.execute(editado);
+                out.print(editado);
+                response.sendRedirect("pecera.jsp");
+
+            }
+
+
         %>
-        
-        
+
+
         <!-- Javascript Bootstrap V5 -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
