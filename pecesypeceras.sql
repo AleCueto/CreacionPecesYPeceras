@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-02-2022 a las 12:37:43
+-- Tiempo de generación: 22-02-2022 a las 12:09:38
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.3.30
 
@@ -38,27 +38,9 @@ CREATE TABLE `pecera` (
 
 INSERT INTO `pecera` (`codPecera`, `tipoAgua`) VALUES
 (15, 'S'),
-(16, 'D'),
-(17, 'D'),
-(18, 'S'),
-(19, 'S'),
-(20, 'D'),
-(21, 'D'),
-(22, 'D'),
-(23, 'D'),
-(24, 'D'),
-(25, 'D'),
-(26, 'D'),
-(27, 'D'),
-(28, 'D'),
-(29, 'D'),
-(30, 'D'),
-(31, 'D'),
-(32, 'D'),
-(33, 'D'),
-(34, 'D'),
-(35, 'D'),
-(36, 'S');
+(45, 'D'),
+(46, 'D'),
+(47, 'D');
 
 -- --------------------------------------------------------
 
@@ -80,36 +62,20 @@ CREATE TABLE `pez` (
 --
 
 INSERT INTO `pez` (`codPez`, `nomPez`, `imgPez`, `codTipo`, `codPecera`, `pesoPez`) VALUES
-(6, 'perico', './images/mero.png', 1, 15, 5),
-(7, 'pericof', './images/mero.png', 1, 15, 5),
-(9, 'pericoffdf', './images/mero.png', 1, 15, 5),
-(11, 'Periquito', './images/trucha.png', 3, 15, 5),
-(12, 'Periquitoo', './images/trucha.png', 3, 15, 5),
-(13, 'Periquitooo', './images/trucha.png', 3, 15, 5),
-(15, 'dffdsfsdf', './images/mero.png', 1, 15, 5),
-(16, 'dffdsfsdfefew', './images/mero.png', 1, 15, 5),
-(17, 'fdsfsfdsfds', './images/atun.png', 2, 15, 5),
-(20, 'efef', './images/mero.png', 1, 15, 5),
-(21, 'oioioio', './images/atun.png', 2, 15, 5),
-(22, 'paquito', './images/atun.png', 2, 15, 5),
-(23, 'cfef', 'imagen pez', 2, 16, 5),
-(24, 'fefok', './images/mero.png', 1, 16, 5),
-(25, 'egeriognroe', './images/trucha.png', 3, 15, 5),
-(26, 'Arturo', './images/mero.png', 1, 15, 5),
-(27, 'palor', './images/mero.png', 1, 15, 5),
-(28, 'Roberto', './images/trucha.png', 3, 15, 5),
-(29, 'Antoniofd', './images/mero.png', 1, 15, 5),
-(32, 'Pepe', './images/trucha.png', 3, 15, 5),
-(33, 'opus', './images/atun.png', 2, 15, 5),
-(34, 'Correo', './images/atun.png', 2, 15, 5),
-(36, 'ioioir', './images/mero.png', 1, 15, 5),
-(38, 'Topor', './images/atun.png', 2, 15, 5),
-(40, 'Paquitoo', './images/atun.png', 2, 15, 5),
-(41, 'ioior', './images/mero.png', 1, 32, 5),
-(42, 'oooooooooooo', './images/mero.png', 1, 33, 5),
-(45, 'eeeeeeeeeeeeeeeeeee', './images/mero.png', 1, 34, 5),
-(50, 'hgjfj', './images/mero.png', 1, 36, 5),
-(51, 'alfonso', './images/mero.png', 1, 36, 5);
+(80, 'Dory', './images/cirujanoAzul.png', 8, 15, 5),
+(81, 'Nemo', './images/pezPayaso.png', 6, 15, 5),
+(82, 'Tam kecnch', './images/siluro.png', 5, 15, 5),
+(83, 'Alfonso', './images/mero.png', 1, 15, 5),
+(84, 'Pipo', './images/atun.png', 2, 15, 5),
+(85, 'Burbujas', './images/atun.png', 2, 15, 5),
+(86, 'Perico', './images/lubina.png', 4, 15, 5),
+(87, 'Smithers', './images/mariposaNarizona.png', 7, 15, 5),
+(88, 'Marina', './images/lubina.png', 4, 15, 5),
+(89, 'Turucha', './images/trucha.png', 3, 15, 5),
+(90, 'Lily', './images/cirujanoAzul.png', 8, 45, 5),
+(91, 'Manzana', './images/pezPayaso.png', 6, 46, 5),
+(92, 'Pepillo', './images/siluro.png', 5, 15, 5),
+(94, 'PezPruebas', './images/mariposaNarizona.png', 7, 47, 5);
 
 -- --------------------------------------------------------
 
@@ -130,7 +96,12 @@ CREATE TABLE `tipopez` (
 INSERT INTO `tipopez` (`codTipo`, `nomTipo`, `tipoAgua`) VALUES
 (1, 'Mero', 'S'),
 (2, 'Atun', 'S'),
-(3, 'Trucha', 'D');
+(3, 'Trucha', 'D'),
+(4, 'Lubina', 'S'),
+(5, 'Siluro', 'D'),
+(6, 'Payaso', 'D'),
+(7, 'Mariposa Narizona', 'D'),
+(8, 'Cirujano Azul', 'D');
 
 -- --------------------------------------------------------
 
@@ -151,9 +122,9 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`codUsuario`, `nomUsuario`, `contrasena`, `codPecera`) VALUES
 (15, 'AleCueto', 'contraseña', 15),
-(17, 'usuario2', 'contraseña', 16),
-(18, 'NuevoUsuario', 'contraseña', 35),
-(19, 'NuevoUsuario2', 'NuevoUsuario2', 36);
+(28, 'Profesor', 'contraseña', 45),
+(29, 'JorgePerez', 'contraseña', 46),
+(30, 'UsuarioPruebas', 'contraseña', 47);
 
 --
 -- Índices para tablas volcadas
@@ -197,25 +168,25 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `pecera`
 --
 ALTER TABLE `pecera`
-  MODIFY `codPecera` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `codPecera` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de la tabla `pez`
 --
 ALTER TABLE `pez`
-  MODIFY `codPez` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `codPez` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT de la tabla `tipopez`
 --
 ALTER TABLE `tipopez`
-  MODIFY `codTipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `codTipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `codUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `codUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Restricciones para tablas volcadas
