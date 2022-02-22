@@ -34,6 +34,9 @@ Por último, en el apartado de login, abajo a la derecha tenemos un icono en col
 
 ![imagen](https://user-images.githubusercontent.com/91873580/155166663-b2fc8f0f-a265-41b5-9136-a5106eb82cb5.png)
 
+## Notas (importante)
+El nombre del usuario principal es "AleCueto" y su contraseña es "contraseña", hay mas usuarios con datos, sus contraseñas y nombres se pueden consultar en la base de datos.
+El nombre de la base de datos creada DEBE SER "pecesypeceras".
 
 ## Video explicación
 En este video explico el flujo de los archivos del programa y muestro como funciona a grandes rasgos:
