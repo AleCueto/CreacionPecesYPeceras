@@ -32,7 +32,7 @@
             Statement s = conexion.createStatement();
             Statement u = conexion.createStatement();
 
-            String[] nombreTipos = {"No existe", "Mero", "Atún", "Trucha", "Lubina", "Siluro", "Payaso", "Mariposa Narizona", "Cirujano Azúl"};
+            String[] nombreTipos = {"No existe", "Mero", "Atún", "Trucha", "Lubina", "Siluro", "Payaso", "Mariposa", "Cirujano Azúl"};
             //Se establecen los nombres de los tipos que se sacarán por pantalla en un array de string, que se seleccionará en base a que el indice es igual al codigo del tipo
 
             String buscar = "";
