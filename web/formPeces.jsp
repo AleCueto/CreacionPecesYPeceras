@@ -59,6 +59,11 @@
                         <option>Mero</option>
                         <option>Atun</option><!-- comment -->
                         <option>Trucha</option><!-- comment -->
+                        <option>Lubina</option><!-- comment -->
+                        <option>Siluro</option><!-- comment -->
+                        <option>Payaso</option><!-- comment -->
+                        <option>Mariposa Narizona</option><!-- comment -->
+                        <option>Cirujano Azul</option><!-- comment -->
                     </select>
                     <button type="submit">CREAR</button>
                 </div>

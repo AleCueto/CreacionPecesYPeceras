@@ -32,7 +32,7 @@
             Statement u = conexion.createStatement();
 
             
-            String[] nombreTipos = {"No existe", "Mero", "Atún", "Trucha"};
+            String[] nombreTipos = {"No existe", "Mero", "Atún", "Trucha", "Lubina", "Siluro", "Payaso", "Mariposa Narizona", "Cirujano Azúl"};
             
             String buscar = "";
 
@@ -152,7 +152,7 @@
 
                                 <tr>
                                     <td class="col-3 rowWithImage "> <%= misPeces.getString("nomPez")%></td>
-                                    <td class="col-2 rowWithImage text-center"> <%= nombreTipos[Integer.parseInt(misPeces.getString("codTipo"))]%></td> 
+                                    <td class="col-2 rowWithImage text-center "> <%= nombreTipos[Integer.parseInt(misPeces.getString("codTipo"))]%></td> 
                                     <td class="col-5"> <img class="img-fluid imagesTable d-block mx-auto" src= "<%= misPeces.getString("imgPez")%>" alt=""></td>
                                     <td class="col-1 bi text-center"><a href="formEditarPeces.jsp?id=<%=misPeces.getString("codPez")%>" class="col-1 bi bi-pencil-square rowWithImage"></a></td> 
                                     <td class="col-1 bi text-center"><a href="delete.jsp?id=<%=misPeces.getString("codPez")%>" class=" bi-trash3-fill rowWithImage" onclick="confirm('Estás seguro de querer borrar el registro?')"></a></td>

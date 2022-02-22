@@ -48,7 +48,7 @@
                 out.println(request.getParameter("NomPez"));
                 out.println(request.getParameter("TipoPez"));
 
-                String[] imagenesPeces = {"null", "mero.png", "atun.png", "trucha.png"}; //El pez llamará a la imagen que tenga como índice su numero de tipo de pez
+                String[] imagenesPeces = {"null", "mero.png", "atun.png", "trucha.png", "lubina.png", "siluro.png", "pezPayaso.png", "mariposaNarizona.png", "cirujanoAzul.png"}; //El pez llamará a la imagen que tenga como índice su numero de tipo de pez
                 String imagen = "./images/" + imagenesPeces[listado.getInt("codTipo")]; //Pasamos la imagen a cadena de texto
 
                 String insercion = "INSERT INTO pez(nomPez, imgPez, codTipo, codPecera) VALUES('" + request.getParameter("NomPez")

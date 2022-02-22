@@ -51,11 +51,9 @@
                 }
             }
 
-
             //if(session.getAttribute("NumPecera") == null){
-                //response.sendRedirect("index.jsp");
+            //response.sendRedirect("index.jsp");
             //}//MIRAR QUE NUMPECERA NO ES NULL; SI ES NULL TE MANDA AL PRINCIPIO
-            
 
         %>
 
@@ -90,6 +88,11 @@
                 <option>Mero</option>
                 <option>Atun</option><!-- comment -->
                 <option>Trucha</option><!-- comment -->
+                <option>Lubina</option><!-- comment -->
+                <option>Siluro</option><!-- comment -->
+                <option>Payaso</option><!-- comment -->
+                <option>Mariposa Narizona</option><!-- comment -->
+                <option>Cirujano Azul</option><!-- comment -->
             </select>
         </label>
         <label for="disabledSelect" class="form-label">TIPO AGUA (DULCE O SALADA)
@@ -110,9 +113,9 @@
     </form>
 
 
-        <a href="index.jsp" class="fs-1 m-5 p-5 m-auto">Volver</a>
+    <a href="index.jsp" class="fs-1 m-5 p-5 m-auto">Volver</a>
 
-    
+
 
     <!-- Javascript Bootstrap V5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
