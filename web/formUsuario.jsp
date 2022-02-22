@@ -113,7 +113,7 @@
     </form>
 
 
-    <a href="index.jsp" class="fs-1 m-5 p-5 m-auto">Volver</a>
+    <a href="index.jsp" class="mt-5 col-12 m-auto fs-2 text-center">Volver</a>
 
 
 
