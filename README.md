@@ -13,7 +13,8 @@ En esta parte simplemente se hace un bucle que pasa por todos los usuarios miran
 
 Si introducimos valores correctos, entraremos en nuestra pecera, en la que podemos ver a nuestros peces, los cuales tienen un nombre, un tipo (mero, atún, carpa...) y una imagen. Además, la tabla es completamente responsive y permite hacer un scroll para ver cuantos elementos se desee.
 
-![imagen](https://user-images.githubusercontent.com/91873580/154850914-88586b33-08b3-47fb-b61f-a2c82ddd4d2d.png)
+![imagen](https://user-images.githubusercontent.com/91873580/155166282-fe5f288d-cef9-446f-aa49-11a02541a089.png)
+
 
 Como se puede observar, a la derecha de cada una de las tuplas, hay un icono que nos permite eliminar el pez de nuestra pecera, y editar el nombre del mismo.
 Si pulsamos el icono de la papelera podemos ver como nos aparece una alerta que nos pregunta si queremos continuar, en caso de estar de acuerdo, pulsamos "aceptar y eliminará de la pecera el pez elegido".
