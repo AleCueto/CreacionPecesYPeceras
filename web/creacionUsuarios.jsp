@@ -15,6 +15,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>CRUD-Peces y Peceras</title>
+        <link rel="icon" type="image/x-icon" href="./images/logo.png">
     </head>
     <body>
 
@@ -57,7 +58,7 @@
                 int tipo = listado.getInt("CodTipo");
 
                 //guardamos las direcciones de las imágenes en el proyecto en un array de string, que usará como índice el código del tipo de pez
-                String[] imagenesPeces = {"null", "mero.png", "atun.png", "trucha.png", "lubina.png", "siluro.png", "pezPayaso.png", "mariposaNarizona.png", "cirujanoAzul.png"}; 
+                String[] imagenesPeces = {"null", "mero.png", "atun.png", "trucha.png", "lubina.png", "siluro.png", "pezPayaso.png", "mariposaNarizona.png", "cirujanoAzul.png"};
                 String imagen = "./images/" + imagenesPeces[listado.getInt("CodTipo")]; //Pasamos la imagen a cadena de texto
 
                 String insercionPecera = "INSERT INTO pecera(tipoAgua) VALUES('" + request.getParameter("NueTipoAgua") + "')";

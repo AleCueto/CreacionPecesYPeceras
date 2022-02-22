@@ -18,6 +18,7 @@
         <link href="css/loginstyle.css" rel="stylesheet" type="text/css"/>
         <link href="css/registro.css" rel="stylesheet" type="text/css"/>
         <title>CRUD-Peces y Peceras</title>
+        <link rel="icon" type="image/x-icon" href="./images/logo.png">
     </head>
     <body>
 

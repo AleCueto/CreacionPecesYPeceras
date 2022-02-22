@@ -18,6 +18,7 @@
         <link href="css/peceraStyle.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
         <title>CRUD-Peces y Peceras</title>
+        <link rel="icon" type="image/x-icon" href="./images/logo.png">
     </head>
     <body>
 
@@ -31,10 +32,9 @@
             Statement s = conexion.createStatement();
             Statement u = conexion.createStatement();
 
-            
             String[] nombreTipos = {"No existe", "Mero", "Atún", "Trucha", "Lubina", "Siluro", "Payaso", "Mariposa Narizona", "Cirujano Azúl"};
             //Se establecen los nombres de los tipos que se sacarán por pantalla en un array de string, que se seleccionará en base a que el indice es igual al codigo del tipo
-            
+
             String buscar = "";
 
             if (request.getParameter("nombreBusqueda") != null) {
@@ -50,8 +50,7 @@
 
             String numPecera = (String) session.getAttribute("NumPecera");
             // En esta parte cogemos el numero de la pecera que asignamos en login y lo igualamos a numPecera
-            
-            
+
             ResultSet miPecera = s.executeQuery("SELECT * FROM pecera WHERE codPecera = " + numPecera); //miPecera será igual al resultado de un select que coja solo la pecera del usuario
             ResultSet misPeces = u.executeQuery("SELECT * FROM pez WHERE codPecera = " + numPecera + buscar); //mis peces son los peces de la pecera en cuestión + la sentencia de búsqueda mencionada anteriormente
 
@@ -119,7 +118,7 @@
         </nav>
         <!-- Fin NAVBAR -->
 
-        
+
 
         <div class="container text-center text-white">
             <div class="row pt-5">

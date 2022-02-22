@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Estudios/Documents/NetBeansProjects/CRUD-PecesYPeceras/web/formEditarPeces.jsp</file>
             <file>file:/C:/Users/Estudios/Documents/NetBeansProjects/CRUD-PecesYPeceras/web/edit.jsp</file>
-            <file>file:/C:/Users/Estudios/Documents/NetBeansProjects/CRUD-PecesYPeceras/web/index.jsp</file>
             <file>file:/C:/Users/Estudios/Documents/NetBeansProjects/CRUD-PecesYPeceras/web/formUsuario.jsp</file>
+            <file>file:/C:/Users/Estudios/Documents/NetBeansProjects/CRUD-PecesYPeceras/web/creacionUsuarios.jsp</file>
             <file>file:/C:/Users/Estudios/Documents/NetBeansProjects/CRUD-PecesYPeceras/web/formPeces.jsp</file>
-            <file>file:/C:/Users/Estudios/Documents/NetBeansProjects/CRUD-PecesYPeceras/web/pecera.jsp</file>
+            <file>file:/C:/Users/Estudios/Documents/NetBeansProjects/CRUD-PecesYPeceras/web/creacionPeces.jsp</file>
+            <file>file:/C:/Users/Estudios/Documents/NetBeansProjects/CRUD-PecesYPeceras/web/delete.jsp</file>
         </group>
     </open-files>
 </project-private>

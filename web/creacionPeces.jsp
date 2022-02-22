@@ -15,6 +15,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>CRUD-Peces y Peceras</title>
+        <link rel="icon" type="image/x-icon" href="./images/logo.png">
     </head>
     <body>
 
@@ -47,7 +48,7 @@
 
                 out.println(request.getParameter("NomPez"));
                 out.println(request.getParameter("TipoPez"));
-                
+
                 //guardamos las direcciones de las imágenes en el proyecto en un array de string, que usará como índice el código del tipo de pez
                 String[] imagenesPeces = {"null", "mero.png", "atun.png", "trucha.png", "lubina.png", "siluro.png", "pezPayaso.png", "mariposaNarizona.png", "cirujanoAzul.png"}; //El pez llamará a la imagen que tenga como índice su numero de tipo de pez
                 String imagen = "./images/" + imagenesPeces[listado.getInt("codTipo")]; //Pasamos la imagen a cadena de texto

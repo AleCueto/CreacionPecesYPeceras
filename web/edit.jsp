@@ -18,6 +18,7 @@
         <link href="css/peceraStyle.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
         <title>CRUD-Peces y Peceras</title>
+        <link rel="icon" type="image/x-icon" href="./images/logo.png">
     </head>
     <body>
 
@@ -49,7 +50,7 @@
                 response.sendRedirect("pecera.jsp");
             } else {// si el nombre es nuevo, hacemos un update y le cambiamos el nombre al pez
 
-                String editado = "UPDATE pez SET nomPez = '" + request.getParameter("NomPez") + "' WHERE codPez = " + identificador; 
+                String editado = "UPDATE pez SET nomPez = '" + request.getParameter("NomPez") + "' WHERE codPez = " + identificador;
                 s.execute(editado);
                 out.print(editado);
                 response.sendRedirect("pecera.jsp");

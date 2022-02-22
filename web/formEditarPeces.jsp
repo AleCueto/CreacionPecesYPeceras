@@ -17,6 +17,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link href="css/loginstyle.css" rel="stylesheet" type="text/css"/>
         <title>CRUD-Peces y Peceras</title>
+        <link rel="icon" type="image/x-icon" href="./images/logo.png">
     </head>
     <body>
 
@@ -34,13 +35,11 @@
                 response.sendRedirect("index.jsp");
             }//Aquí comprobamos que numPecera existe, si no es así te manda de nuevo al inicio del programa
 
-            
             //Recogemos los datos que nos ha pasado desde el formulario
             String identificador = request.getParameter("id");
             session.setAttribute("CodPezSesion", identificador);
             String numPecera = (String) session.getAttribute("NumPecera");
 
-            
             ResultSet miPecera = s.executeQuery("SELECT * FROM pecera WHERE codPecera = " + numPecera);
             ResultSet misPeces = u.executeQuery("SELECT * FROM pez WHERE codPecera = " + numPecera);
 
