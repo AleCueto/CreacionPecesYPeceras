@@ -19,7 +19,8 @@ Si introducimos valores correctos, entraremos en nuestra pecera, en la que podem
 Como se puede observar, a la derecha de cada una de las tuplas, hay un icono que nos permite eliminar el pez de nuestra pecera, y editar el nombre del mismo.
 Si pulsamos el icono de la papelera podemos ver como nos aparece una alerta que nos pregunta si queremos continuar, en caso de estar de acuerdo, pulsamos "aceptar y eliminará de la pecera el pez elegido".
 
-![imagen](https://user-images.githubusercontent.com/91873580/154851060-c925cdb9-f8b1-44e5-9967-6635236666c4.png)
+![imagen](https://user-images.githubusercontent.com/91873580/155166491-5a366885-3ef3-43b7-b1bf-44d0c1802a07.png)
+
 
  Si deseamos editar el nombre del pez, damos clic en el icono del lápiz, que nos llevará a una página parecida a la de login, en la que podremos elegir el nuevo nombre para nuestro querido pez.
  
@@ -31,7 +32,8 @@ También tenemos arriba a la derecha de la tabla de la pecera, una etiqueta que 
 
 Por último, en el apartado de login, abajo a la derecha tenemos un icono en color amarillo, para contrastar con el resto de la aplicación y permitir que el usuario se de cuenta de él. Este icóno nos permite crear un nuevo usuario, si le damos clic nos llevará a una página en la que deberemos hacer el registro de nuestro nuevo usuario, para ello introducimos un nombre, una contraseña, un nombre para nuestro primero pez, además de su tipo y del tipo de agua que queremos para nuestra pecera (salada o dulce).
 
-![imagen](https://user-images.githubusercontent.com/91873580/154851900-9b4755a1-9d93-4da0-b42a-05dcc27050f0.png)
+![imagen](https://user-images.githubusercontent.com/91873580/155166663-b2fc8f0f-a265-41b5-9136-a5106eb82cb5.png)
+
 
 ## Video explicación
 En este video explico el flujo de los archivos del programa y muestro como funciona a grandes rasgos:
