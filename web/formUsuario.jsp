@@ -40,20 +40,17 @@
 
             if (session.getAttribute("error") != null) {
 
-                if (session.getAttribute("error").equals("usuario")) { //ESTO FALLA!!!
+                if (session.getAttribute("error").equals("usuario")) { //Miramos si la variable de sesion error es igual a usuario, si es así, falla el usuario y devolvemos el correspondiente mensaje
                     session.setAttribute("error", "null");
                     out.print("<script type=\"text/javascript\">alert(\"Lo siento, el nombre de usuario ya existe\");</script>");
                 }
 
-                if (session.getAttribute("error").equals("pez")) { //ESTO FALLA!!!
+                if (session.getAttribute("error").equals("pez")) { //Miramos si la variable de sesion error es igual a pez, si es así, falla el pez y devolvemos el correspondiente mensaje
                     session.setAttribute("error", "null");
                     out.print("<script type=\"text/javascript\">alert(\"Lo siento, el nombre del pez ya existe\");</script>");
                 }
             }
 
-            //if(session.getAttribute("NumPecera") == null){
-            //response.sendRedirect("index.jsp");
-            //}//MIRAR QUE NUMPECERA NO ES NULL; SI ES NULL TE MANDA AL PRINCIPIO
 
         %>
 

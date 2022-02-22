@@ -38,18 +38,18 @@
 
             ResultSet peces = w.executeQuery("SELECT * FROM pez"); //Miramos si existe un pez con el mismo nombre
 
-            while (peces.next()) {
+            while (peces.next()) { //miramos los peces que hay y comprobamos que no existe ninguno con el mismo nombre, si se repite, pasamos un error con nombre pez a pecera
                 if (request.getParameter("NomPez").toString().equals(peces.getString("nomPez"))) {
                     repetido = true;
                 }
             }
 
-            if (repetido) {
+            if (repetido) { //pasamos error con nombre pez a pecera
                 session.setAttribute("error", "pez");
                 response.sendRedirect("pecera.jsp");
-            } else {
+            } else {// si el nombre es nuevo, hacemos un update y le cambiamos el nombre al pez
 
-                String editado = "UPDATE pez SET nomPez = '" + request.getParameter("NomPez") + "' WHERE codPez = " + identificador;
+                String editado = "UPDATE pez SET nomPez = '" + request.getParameter("NomPez") + "' WHERE codPez = " + identificador; 
                 s.execute(editado);
                 out.print(editado);
                 response.sendRedirect("pecera.jsp");

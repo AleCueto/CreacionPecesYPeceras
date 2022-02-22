@@ -35,6 +35,7 @@
 
             while (listado.next()) {
                 if (request.getParameter("CadenaNombre").toString().equals(listado.getString("nomUsuario")) && request.getParameter("CadenaContrasena").toString().equals(listado.getString("contrasena"))) {
+                    //Compruebo que existe un usuario y una contraseña igual a las enviadas desde el formulario en index
                     correcto = true;
                     String name = request.getParameter("CadenaNombre");
                     ResultSet miPecera = u.executeQuery("SELECT * FROM pez p JOIN usuario u WHERE u.codPecera = p.codPecera AND u.nomUsuario = '" + name + "'");
@@ -44,7 +45,7 @@
                 }
             }
 
-            if (!correcto) {
+            if (!correcto) { // si la contraseña o el usuario son incorrectos, se establece un nuevo valor para la variable de sesion "error" y se abre de nuevo index
                 session.setAttribute("error", "Lo siento, usuario o contraseña incorrectos");
                 response.sendRedirect("index.jsp");
             }

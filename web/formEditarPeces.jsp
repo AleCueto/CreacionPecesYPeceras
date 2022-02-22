@@ -32,12 +32,15 @@
 
             if (session.getAttribute("NumPecera") == null) {
                 response.sendRedirect("index.jsp");
-            }//MIRAR QUE NUMPECERA NO ES NULL; SI ES NULL TE MANDA AL PRINCIPIO
+            }//Aquí comprobamos que numPecera existe, si no es así te manda de nuevo al inicio del programa
 
+            
+            //Recogemos los datos que nos ha pasado desde el formulario
             String identificador = request.getParameter("id");
             session.setAttribute("CodPezSesion", identificador);
             String numPecera = (String) session.getAttribute("NumPecera");
 
+            
             ResultSet miPecera = s.executeQuery("SELECT * FROM pecera WHERE codPecera = " + numPecera);
             ResultSet misPeces = u.executeQuery("SELECT * FROM pez WHERE codPecera = " + numPecera);
 

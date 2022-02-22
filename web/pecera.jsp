@@ -33,31 +33,36 @@
 
             
             String[] nombreTipos = {"No existe", "Mero", "Atún", "Trucha", "Lubina", "Siluro", "Payaso", "Mariposa Narizona", "Cirujano Azúl"};
+            //Se establecen los nombres de los tipos que se sacarán por pantalla en un array de string, que se seleccionará en base a que el indice es igual al codigo del tipo
             
             String buscar = "";
 
             if (request.getParameter("nombreBusqueda") != null) {
                 buscar += " AND nomPez LIKE '%" + request.getParameter("nombreBusqueda").toString() + "%'";
-
+                //si se ha pasado un parámetro desde el formulario de pecera con el nombre igual a "nombreBusqueda" se añade una comprobacion LIKE al final de la sentencia de búsqueda
+                //esta comparación LIKE escoge las tuplas que contengan el texto introducido en el buscador y cualquier otra cosa delante y detrás
             }
 
             if (request.getParameter("orden") != null) {
                 buscar += " ORDER BY " + request.getParameter("orden").toString();
+                //Si se ha pasado un parámetro llamado "orden" desde el formulario de la barra de navegación, se añade a la sentencia de búsqueda un ORDER BY + la columna por la que deseemos ordenar
             }
 
             String numPecera = (String) session.getAttribute("NumPecera");
-
-            ResultSet miPecera = s.executeQuery("SELECT * FROM pecera WHERE codPecera = " + numPecera);
-            ResultSet misPeces = u.executeQuery("SELECT * FROM pez WHERE codPecera = " + numPecera + buscar);
+            // En esta parte cogemos el numero de la pecera que asignamos en login y lo igualamos a numPecera
+            
+            
+            ResultSet miPecera = s.executeQuery("SELECT * FROM pecera WHERE codPecera = " + numPecera); //miPecera será igual al resultado de un select que coja solo la pecera del usuario
+            ResultSet misPeces = u.executeQuery("SELECT * FROM pez WHERE codPecera = " + numPecera + buscar); //mis peces son los peces de la pecera en cuestión + la sentencia de búsqueda mencionada anteriormente
 
             String peceraNum = "";
 
             if (session.getAttribute("NumPecera") == null) {
                 response.sendRedirect("index.jsp");
-            }//MIRAR QUE NUMPECERA NO ES NULL; SI ES NULL TE MANDA AL PRINCIPIO
+            }//Aquí comprobamos que numPecera existe, si no es así te manda de nuevo al inicio del programa
 
             if (session.getAttribute("error") != null) {
-                if (session.getAttribute("error").equals("pez")) { //ESTO FALLA!!!
+                if (session.getAttribute("error").equals("pez")) { // Comprobamos si se nos ha mandado un error desde otra página, en este caso es por si creamos o editamos un pez y le ponemos un nombre que ya existe
                     session.setAttribute("error", "null");
                     out.print("<script type=\"text/javascript\">alert(\"Lo siento, el nombre del pez ya existe\");</script>");
                 }
@@ -66,11 +71,11 @@
 
         %>
 
-
+        <!-- Inicio NAVBAR -->
 
         <nav class="navbar navbar-expand-lg navbar-light bg-grey sticky-top zindex-sticky">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img id="logo" src="./images/logo.png" alt="logo alien"></a>
+                <a class="navbar-brand" href="#"><img id="logo" src="./images/logo.png" alt="logo pez"></a>
 
                 <!--HAMBURGUESA-->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -109,16 +114,12 @@
 
 
 
-                    <!--
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
-                    -->
                 </div>
             </div>
         </nav>
+        <!-- Fin NAVBAR -->
 
+        
 
         <div class="container text-center text-white">
             <div class="row pt-5">
@@ -148,7 +149,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <%                                    while (misPeces.next()) {%>
+                                <%  while (misPeces.next()) { //Aquí damos tantas vueltas como tuplas tenga la sentencia mis peces, es decir cuantos peces tengamos, y sacamos una fila con cada uno de los peces  %>
 
                                 <tr>
                                     <td class="col-3 rowWithImage "> <%= misPeces.getString("nomPez")%></td>
@@ -160,7 +161,7 @@
 
 
                                 <%
-                                        peceraNum = (String) session.getAttribute("NumPecera"); // ESTO LO DEBERÍA HACER SIEMPRE PERO SI NO TIENE NINGÚN PEZ NO LO HACE
+                                        peceraNum = (String) session.getAttribute("NumPecera");
 
                                     }
                                 %>

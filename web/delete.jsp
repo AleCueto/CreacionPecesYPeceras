@@ -30,7 +30,7 @@
             Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/pecesypeceras?useSSL=false&allowPublicKeyRetrieval=true", "root", "");
             Statement s = conexion.createStatement();
 
-            String borrado = "DELETE FROM pez WHERE codPez = " + identificador; 
+            String borrado = "DELETE FROM pez WHERE codPez = " + identificador; //establecemos la sentencia de borrado del pez con el identificador en cuestión
         
             s.execute(borrado);
             out.print(borrado);

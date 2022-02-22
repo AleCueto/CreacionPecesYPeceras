@@ -32,7 +32,7 @@
 
             if (session.getAttribute("NumPecera") == null) {
                 response.sendRedirect("index.jsp");
-            }//MIRAR QUE NUMPECERA NO ES NULL; SI ES NULL TE MANDA AL PRINCIPIO
+            }//Aquí comprobamos que numPecera existe, si no es así te manda de nuevo al inicio del programa
 
             String numPecera = (String) session.getAttribute("NumPecera");
 

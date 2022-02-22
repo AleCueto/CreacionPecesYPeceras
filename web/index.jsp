@@ -23,14 +23,14 @@
 
 
         <%
-            session.setAttribute("NumPecera", null);
+            session.setAttribute("NumPecera", null); //establezco el valor de NumPecera a nulo para cerrar sesión e impedir el acceso a otras páginas sin login
             
             
-            if (session.getAttribute("error") != null) {
+            if (session.getAttribute("error") != null) { //compruebo si hay algún error
 
-                if (session.getAttribute("error").equals("Lo siento, usuario o contraseña incorrectos")) { // ESTO FALLA!!!
+                if (session.getAttribute("error").equals("Lo siento, usuario o contraseña incorrectos")) { //compruebo el tipo de error
                     session.setAttribute("error", "null");
-                    out.print("<script type=\"text/javascript\">alert(\"Lo siento, acceso denegado, usuario o contraseña incorrectos\");</script>");
+                    out.print("<script type=\"text/javascript\">alert(\"Lo siento, acceso denegado, usuario o contraseña incorrectos\");</script>"); //saco por pantalla el error en cuestion
                 }
             }
 
