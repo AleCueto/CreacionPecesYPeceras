@@ -10,6 +10,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 /*--------------------------------------TABLE------------------------------------------*/
 
+.bg-grey{
+    background-color: rgba(173, 160, 167, 0.35);
+}
+
 .imagesTable{
     width: 30%;
 }

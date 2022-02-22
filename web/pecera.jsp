@@ -31,6 +31,9 @@
             Statement s = conexion.createStatement();
             Statement u = conexion.createStatement();
 
+            
+            String[] nombreTipos = {"No existe", "Mero", "Atún", "Trucha"};
+            
             String buscar = "";
 
             if (request.getParameter("nombreBusqueda") != null) {
@@ -65,7 +68,7 @@
 
 
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-blue sticky-top zindex-sticky">
+        <nav class="navbar navbar-expand-lg navbar-light bg-grey sticky-top zindex-sticky">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#"><img id="logo" src="./images/logo.png" alt="logo alien"></a>
 
@@ -129,7 +132,7 @@
 
         <div class="container py-5">
             <div class="row">
-                <div class="col-lg-7 mx-auto bg-white rounded shadow">
+                <div class="col-lg-9 mx-auto bg-white rounded shadow">
 
                     <!-- Fixed header table-->
                     <div class="table-responsive">
@@ -137,8 +140,8 @@
                             <thead>
                                 <tr>
                                     <th scope="col" class="col-3">Nombre Pez</th>
-                                    <th scope="col"class="col-2">Código Tipo</th>
-                                    <th scope="col"class="col-4">Imagen Pez</th>
+                                    <th scope="col"class="col-2 text-center">Tipo Pez</th>
+                                    <th scope="col"class="col-5 text-center">Imagen Pez</th>
                                     <th scope="col"class="col-1">Editar </th>
                                     <th scope="col"class="col-1">Borrar</th>
 
@@ -148,11 +151,11 @@
                                 <%                                    while (misPeces.next()) {%>
 
                                 <tr>
-                                    <td class="col-3 rowWithImage"> <%= misPeces.getString("nomPez")%></td>
-                                    <td class="col-2 rowWithImage"> <%= misPeces.getString("codTipo")%></td> 
-                                    <td class="col-5"> <img class="img-fluid imagesTable" src= "<%= misPeces.getString("imgPez")%>" alt=""></td>
-                                    <td><a href="formEditarPeces.jsp?id=<%=misPeces.getString("codPez")%>" class="col-1 bi bi-pencil-square rowWithImage"></a></td> 
-                                    <td><a href="delete.jsp?id=<%=misPeces.getString("codPez")%>" class="col-1 bi bi-trash3-fill rowWithImage" onclick="confirm('Estás seguro de querer borrar el registro?')"></a></td>
+                                    <td class="col-3 rowWithImage "> <%= misPeces.getString("nomPez")%></td>
+                                    <td class="col-2 rowWithImage text-center"> <%= nombreTipos[Integer.parseInt(misPeces.getString("codTipo"))]%></td> 
+                                    <td class="col-5"> <img class="img-fluid imagesTable d-block mx-auto" src= "<%= misPeces.getString("imgPez")%>" alt=""></td>
+                                    <td class="col-1 bi text-center"><a href="formEditarPeces.jsp?id=<%=misPeces.getString("codPez")%>" class="col-1 bi bi-pencil-square rowWithImage"></a></td> 
+                                    <td class="col-1 bi text-center"><a href="delete.jsp?id=<%=misPeces.getString("codPez")%>" class=" bi-trash3-fill rowWithImage" onclick="confirm('Estás seguro de querer borrar el registro?')"></a></td>
                                 </tr>
 
 
