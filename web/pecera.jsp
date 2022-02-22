@@ -33,17 +33,15 @@
 
             String buscar = "";
 
-            
             if (request.getParameter("nombreBusqueda") != null) {
                 buscar += " AND nomPez LIKE '%" + request.getParameter("nombreBusqueda").toString() + "%'";
 
             }
 
-            if (request.getParameter("orden") != null){
+            if (request.getParameter("orden") != null) {
                 buscar += " ORDER BY " + request.getParameter("orden").toString();
             }
-            
-            
+
             String numPecera = (String) session.getAttribute("NumPecera");
 
             ResultSet miPecera = s.executeQuery("SELECT * FROM pecera WHERE codPecera = " + numPecera);
@@ -66,34 +64,57 @@
         %>
 
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand p-3" href="#">Peces y peceras</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto p-1">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Pecera <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
+        <nav class="navbar navbar-expand-lg navbar-light bg-blue sticky-top zindex-sticky">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img id="logo" src="./images/logo.png" alt="logo alien"></a>
 
-                </ul>
-                <form class="form-inline my-2 my-lg-0" action="pecera.jsp">
-                    <input  type="text" placeholder="Búsqueda" name="nombreBusqueda" aria-label="Search" >
-                    <select class="form-select" name="orden">
-                        <option value="codTipo">Tipo</option>
-                        <option value="nomPez">Nombre</option>
-                        <option value="pesoPez">Peso</option>
-                    </select>
-                    <button class="btn" type="submit">Search</button>
-                </form>
+                <!--HAMBURGUESA-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <!--HAMBURGUESA FIN-->
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5">
+                        <li class="nav-item link-light">
+                            <a class="nav-link active text-light link-light" aria-current="page" href='pecera.jsp'>Pecera</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href='formPeces.jsp'>¡Añade un nuevo pez!</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href='index.jsp'>Cerrar sesión</a>
+                        </li>
+
+
+                        </li>
+
+
+
+                    </ul>
+
+                    <form class="form-inline my-2 my-lg-0 d-flex" action="pecera.jsp">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Búsqueda" name="nombreBusqueda" aria-label="Search" >
+                        <select class="form-select" name="orden">
+                            <option value="nomPez">Nombre</option>
+                            <option value="codTipo">Tipo</option>
+                            <option value="pesoPez">Peso</option>
+                        </select>
+                        <button class="btn btn-outline-warning" type="submit">Search</button>
+                    </form>
+
+
+
+                    <!--
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    -->
+                </div>
             </div>
         </nav>
-
 
 
         <div class="container text-center text-white">
@@ -141,8 +162,6 @@
                                     }
                                 %>
                             </tbody>
-                            <a class="button" href='formPeces.jsp'>Añade un nuevo pez</a>  
-                            <a class="button" href='index.jsp'>Logout</a>  
                         </table>
 
 
